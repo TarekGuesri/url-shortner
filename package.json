@@ -9,7 +9,7 @@
     "client": "npm start --prefix client",
     "client:install": "npm install --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "postinstall": "(cd src/client && yarn);"
+    "postinstall": "(cd client && yarn);"
   },
   "author": "Tariq Lamin Guesri",
   "license": "ISC",
