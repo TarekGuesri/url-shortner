@@ -15,6 +15,7 @@ const MainLayout = ({ children }) => {
           display="block"
           color="primary.main"
           className={classes.brand}
+          mb={10}
         >
           Shortify
         </Box>
