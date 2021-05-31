@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Box from '@material-ui/core/Box';
 
 import useStyles from './main-layout-jss';
@@ -21,6 +23,10 @@ const MainLayout = ({ children }) => {
       </Box>
     </div>
   );
+};
+
+MainLayout.propTypes = {
+  children: PropTypes.any,
 };
 
 export default MainLayout;
