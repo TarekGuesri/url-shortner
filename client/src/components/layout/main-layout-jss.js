@@ -19,7 +19,7 @@ const useStyles = createUseStyles({
   brand: {
     fontFamily: 'Oleo Script',
     fontSize: '3.5rem',
-    padding: '1rem',
+    // padding: '1rem',
   },
 });
 

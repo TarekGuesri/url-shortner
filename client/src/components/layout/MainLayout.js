@@ -7,16 +7,18 @@ const MainLayout = ({ children }) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Box
-        component="span"
-        display="block"
-        color="primary"
-        className={classes.brand}
-      >
-        Shortify
-      </Box>
+      <Box px={5} py={3}>
+        <Box
+          component="span"
+          display="block"
+          color="primary.main"
+          className={classes.brand}
+        >
+          Shortify
+        </Box>
 
-      {children}
+        {children}
+      </Box>
     </div>
   );
 };
