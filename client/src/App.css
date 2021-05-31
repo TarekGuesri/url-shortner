@@ -2,3 +2,7 @@ html,
 body {
   margin: 0;
 }
+
+.inputRounded .MuiOutlinedInput-root {
+  border-radius: 20px;
+}
