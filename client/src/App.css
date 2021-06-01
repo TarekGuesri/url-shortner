@@ -5,6 +5,7 @@ body {
 
 .inputRounded .MuiOutlinedInput-root {
   border-radius: 30px;
+  box-shadow: -2px 0px 4px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
 }
 
 .MuiOutlinedInput-adornedEnd {

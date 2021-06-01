@@ -42,7 +42,6 @@ const RoundedTextField = ({ buttonText, disabledButton, hasIcon, ...rest }) => {
 
   return (
     <TextField
-      // className={classes.inputRounded}
       className="inputRounded"
       placeholder="Search"
       variant="outlined"
