@@ -37,7 +37,13 @@ const useStyles = createUseStyles({
   },
 });
 
-const RoundedTextField = ({ buttonText, disabledButton, hasIcon, ...rest }) => {
+const RoundedTextField = ({
+  buttonText,
+  disabledButton,
+  hasIcon,
+  buttonOnClick,
+  ...rest
+}) => {
   const classes = useStyles();
 
   return (
@@ -63,6 +69,7 @@ const RoundedTextField = ({ buttonText, disabledButton, hasIcon, ...rest }) => {
               }}
               disabled={disabledButton}
               startIcon={hasIcon ? <FileCopy /> : <></>}
+              onClick={buttonOnClick}
             >
               {buttonText}
             </Button>
@@ -78,6 +85,7 @@ RoundedTextField.propTypes = {
   buttonText: PropTypes.string,
   disabledButton: PropTypes.bool,
   hasIcon: PropTypes.bool,
+  buttonOnClick: PropTypes.func,
 };
 
 RoundedTextField.defaultProps = {

@@ -11,6 +11,7 @@ const HomePage = () => {
 
   const [state, setState] = useState({
     longURL: '',
+    longURLError: '',
     shortURL: '',
   });
 
@@ -20,9 +21,10 @@ const HomePage = () => {
 
   const handleShorten = (e) => {
     console.log(e.target.value);
+    setState({ ...state, longURLError: 'test' });
   };
 
-  const { longURL, shortURL } = state;
+  const { longURL, longURLError, shortURL } = state;
 
   return (
     <Box className={classes.root}>
@@ -35,8 +37,11 @@ const HomePage = () => {
           value={longURL}
           onChange={handleOnChange}
           placeholder="Shorten your URL..."
-          style={{ maxWidth: '40rem', marginTop: '10px' }}
+          style={{ maxWidth: '40rem', marginTop: '4px' }}
           buttonText="Shorten"
+          buttonOnClick={handleShorten}
+          helperText={longURLError}
+          error={!!longURLError}
         />
       </Box>
       <Box>
@@ -47,7 +52,7 @@ const HomePage = () => {
           name="shortURL"
           value={shortURL}
           placeholder="..."
-          style={{ maxWidth: '40rem', marginTop: '10px' }}
+          style={{ maxWidth: '40rem', marginTop: '4px' }}
           buttonText="Copy"
           disabledButton
           hasIcon
