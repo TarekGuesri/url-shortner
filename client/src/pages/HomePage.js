@@ -10,10 +10,30 @@ const HomePage = () => {
   const classes = useStyles();
   return (
     <Box className={classes.root}>
-      <Typography variant="h6" gutterBottom>
-        Paste your long URL here:
-      </Typography>
-      <RoundedTextField />
+      <Box mb={5}>
+        {' '}
+        <Typography variant="h6" gutterBottom>
+          Paste your long URL here:
+        </Typography>
+        <RoundedTextField
+          placeholder="Shorten your URL..."
+          style={{ maxWidth: '40rem' }}
+          buttonText="Shorten"
+        />
+      </Box>
+      <Box>
+        {' '}
+        <Typography variant="h6" gutterBottom>
+          Your short URL:
+        </Typography>
+        <RoundedTextField
+          placeholder="..."
+          style={{ maxWidth: '40rem' }}
+          buttonText="Copy"
+          disabledButton
+          hasIcon
+        />
+      </Box>
     </Box>
   );
 };

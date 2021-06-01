@@ -12,12 +12,16 @@ const theme = createMuiTheme({
       main: '#2A5BD7',
     },
     secondary: {
-      main: colors.indigo[500],
+      default: '#ef7a0b',
+      main: '#ef7a0b',
     },
     text: {
       primary: colors.blueGrey[900],
       secondary: colors.blueGrey[600],
     },
+  },
+  shape: {
+    borderRadius: 8,
   },
 });
 

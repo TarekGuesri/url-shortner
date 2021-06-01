@@ -4,5 +4,13 @@ body {
 }
 
 .inputRounded .MuiOutlinedInput-root {
-  border-radius: 20px;
+  border-radius: 30px;
+}
+
+.MuiOutlinedInput-adornedEnd {
+  padding-right: 0px !important;
+}
+
+.MuiButton-root {
+  border-radius: 30px !important;
 }
