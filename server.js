@@ -18,6 +18,9 @@ app.get('/', (req, res) => {
   res.send('Hello World');
 });
 
+// Define Routes
+app.use('/rest', require('./routes/rest'));
+
 // Serve static assets in production
 if (process.env.NODE_ENV === 'production') {
   // Set static folder
