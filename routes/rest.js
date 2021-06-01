@@ -2,6 +2,6 @@ const express = require('express');
 const router = express.Router();
 
 // Routes
-router.use('/url', require('./rest/url'));
+router.use('/urls', require('./rest/urls'));
 
 module.exports = router;

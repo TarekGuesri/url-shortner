@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 const morgan = require('morgan');
 const colors = require('colors');
 const path = require('path');
+const bodyParser = require('body-parser');
 const connectDB = require('./config/db');
 
 // Load env vars
@@ -12,6 +13,12 @@ dotenv.config({ path: './config/config.env' });
 connectDB();
 
 const app = express();
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
 
 // Dev logging middleware
 if (process.env.NODE_ENV === 'development') {

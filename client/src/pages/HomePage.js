@@ -10,9 +10,9 @@ const HomePage = () => {
   const classes = useStyles();
 
   const [state, setState] = useState({
-    longURL: '',
-    longURLError: '',
-    shortURL: '',
+    longUrl: '',
+    longUrlError: '',
+    shortUrl: '',
   });
 
   const handleOnChange = (e) => {
@@ -21,10 +21,10 @@ const HomePage = () => {
 
   const handleShorten = (e) => {
     console.log(e.target.value);
-    setState({ ...state, longURLError: 'test' });
+    setState({ ...state, longUrlError: 'test' });
   };
 
-  const { longURL, longURLError, shortURL } = state;
+  const { longUrl, longUrlError, shortUrl } = state;
 
   return (
     <Box className={classes.root}>
@@ -33,15 +33,15 @@ const HomePage = () => {
           Paste your long URL here:
         </Typography>
         <RoundedTextField
-          name="longURL"
-          value={longURL}
+          name="longUrl"
+          value={longUrl}
           onChange={handleOnChange}
           placeholder="Shorten your URL..."
           style={{ maxWidth: '40rem', marginTop: '4px' }}
           buttonText="Shorten"
           buttonOnClick={handleShorten}
-          helperText={longURLError}
-          error={!!longURLError}
+          helperText={longUrlError}
+          error={!!longUrlError}
         />
       </Box>
       <Box>
@@ -49,8 +49,8 @@ const HomePage = () => {
           Your short URL:
         </Typography>
         <RoundedTextField
-          name="shortURL"
-          value={shortURL}
+          name="shortUrl"
+          value={shortUrl}
           placeholder="..."
           style={{ maxWidth: '40rem', marginTop: '4px' }}
           buttonText="Copy"
