@@ -26,12 +26,18 @@ const HomePage = () => {
 
     try {
       const res = await axios.post('urls/encode', state);
-      setState({ ...state, shortUrl: res.data, loading: false });
-      console.log(res.data);
+      setState((prevState) => ({
+        ...prevState,
+        shortUrl: res.data,
+        loading: false,
+      }));
     } catch (error) {
       const { errors } = error.response.data;
-      console.log(errors);
-      setState({ ...state, longUrlError: errors[0].msg, loading: false });
+      setState((prevState) => ({
+        ...prevState,
+        longUrlError: errors[0].msg,
+        loading: false,
+      }));
     }
   };
 
@@ -50,6 +56,7 @@ const HomePage = () => {
           style={{ maxWidth: '40rem', marginTop: '4px' }}
           buttonText="Shorten"
           disabledButton={!longUrl || loading}
+          buttonLoading={loading}
           helperText={longUrlError}
           error={!!longUrlError}
           onChange={handleOnChange}

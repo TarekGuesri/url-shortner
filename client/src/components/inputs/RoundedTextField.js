@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { createUseStyles } from 'react-jss';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/icons/Link';
 import FileCopy from '@material-ui/icons/FileCopy';
@@ -35,11 +36,16 @@ const useStyles = createUseStyles({
   disabledButton: {
     backgroundColor: '#f9b87b!important',
   },
+  buttonProgress: {
+    top: '50%',
+    left: '50%',
+  },
 });
 
 const RoundedTextField = ({
   buttonText,
   disabledButton,
+  buttonLoading,
   hasIcon,
   buttonOnClick,
   ...rest
@@ -67,11 +73,19 @@ const RoundedTextField = ({
                 text: classes.endButtonText,
                 disabled: classes.disabledButton,
               }}
-              disabled={disabledButton}
+              disabled={disabledButton || buttonLoading}
               startIcon={hasIcon ? <FileCopy /> : <></>}
               onClick={buttonOnClick}
             >
-              {buttonText}
+              {buttonLoading ? (
+                <CircularProgress
+                  size={24}
+                  className={classes.buttonProgress}
+                  style={{ color: '#fff' }}
+                />
+              ) : (
+                buttonText
+              )}
             </Button>
           </InputAdornment>
         ),
@@ -84,6 +98,7 @@ const RoundedTextField = ({
 RoundedTextField.propTypes = {
   buttonText: PropTypes.string,
   disabledButton: PropTypes.bool,
+  buttonLoading: PropTypes.bool,
   hasIcon: PropTypes.bool,
   buttonOnClick: PropTypes.func,
 };
