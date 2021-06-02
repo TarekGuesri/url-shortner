@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
@@ -13,18 +14,28 @@ const HomePage = () => {
     longUrl: '',
     longUrlError: '',
     shortUrl: '',
+    loading: false,
   });
 
   const handleOnChange = (e) => {
     setState({ ...state, [e.target.name]: e.target.value });
   };
 
-  const handleShorten = (e) => {
-    console.log(e.target.value);
-    setState({ ...state, longUrlError: 'test' });
+  const handleShorten = async () => {
+    setState({ ...state, longUrlError: '', loading: true });
+
+    try {
+      const res = await axios.post('urls/encode', state);
+      setState({ ...state, shortUrl: res.data, loading: false });
+      console.log(res.data);
+    } catch (error) {
+      const { errors } = error.response.data;
+      console.log(errors);
+      setState({ ...state, longUrlError: errors[0].msg, loading: false });
+    }
   };
 
-  const { longUrl, longUrlError, shortUrl } = state;
+  const { longUrl, longUrlError, shortUrl, loading } = state;
 
   return (
     <Box className={classes.root}>
@@ -35,13 +46,14 @@ const HomePage = () => {
         <RoundedTextField
           name="longUrl"
           value={longUrl}
-          onChange={handleOnChange}
           placeholder="Shorten your URL..."
           style={{ maxWidth: '40rem', marginTop: '4px' }}
           buttonText="Shorten"
-          buttonOnClick={handleShorten}
+          disabledButton={!longUrl || loading}
           helperText={longUrlError}
           error={!!longUrlError}
+          onChange={handleOnChange}
+          buttonOnClick={handleShorten}
         />
       </Box>
       <Box>
@@ -54,7 +66,7 @@ const HomePage = () => {
           placeholder="..."
           style={{ maxWidth: '40rem', marginTop: '4px' }}
           buttonText="Copy"
-          disabledButton
+          disabledButton={!shortUrl}
           hasIcon
           disabled
         />
