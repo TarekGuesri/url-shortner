@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import copy from 'copy-to-clipboard';
 
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import RoundedTextField from 'src/components/inputs/RoundedTextField';
+import SimpleSnackbar from 'src/components/snackbars/SimpleSnackbar';
 
 import useStyles from './homepage-jss';
 
@@ -15,6 +17,7 @@ const HomePage = () => {
     longUrlError: '',
     shortUrl: '',
     loading: false,
+    isCopied: false,
   });
 
   const handleOnChange = (e) => {
@@ -41,7 +44,22 @@ const HomePage = () => {
     }
   };
 
-  const { longUrl, longUrlError, shortUrl, loading } = state;
+  const handleCopyToClipboard = () => {
+    const { shortUrl } = state;
+
+    copy(shortUrl);
+
+    setState({ ...state, isCopied: true });
+    setTimeout(() => {
+      setState((prevState) => ({ ...prevState, isCopied: false }));
+    }, 5 * 1000);
+  };
+
+  const handleCloseSnackBar = () => {
+    setState({ ...state, isCopied: false });
+  };
+
+  const { longUrl, longUrlError, shortUrl, loading, isCopied } = state;
 
   return (
     <Box className={classes.root}>
@@ -76,8 +94,14 @@ const HomePage = () => {
           disabledButton={!shortUrl}
           hasIcon
           disabled
+          buttonOnClick={handleCopyToClipboard}
         />
       </Box>
+      <SimpleSnackbar
+        open={isCopied}
+        handleClose={handleCloseSnackBar}
+        classes={classes}
+      />
     </Box>
   );
 };

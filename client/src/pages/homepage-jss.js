@@ -7,6 +7,9 @@ const useStyles = createUseStyles({
       marginTop: '1rem',
     },
   },
+  snackbar: {
+    backgroundColor: '#2a5bd7!important',
+  },
 });
 
 export default useStyles;

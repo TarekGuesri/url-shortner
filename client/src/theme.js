@@ -1,4 +1,7 @@
-import { createMuiTheme, colors } from '@material-ui/core';
+import {
+  unstable_createMuiStrictModeTheme as createMuiTheme, // We use the unstable_createMuiStrictModeTheme to remove the findDOMNode warning
+  colors,
+} from '@material-ui/core';
 
 const theme = createMuiTheme({
   palette: {
