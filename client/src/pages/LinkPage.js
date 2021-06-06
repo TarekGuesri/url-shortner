@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import useStyles from './linkpage-jss';
 
@@ -36,7 +37,12 @@ const LinkPage = ({ match }) => {
   const { loading, errorMessage } = state;
 
   if (loading) {
-    return <div>Loading</div>;
+    return (
+      <Box className={classes.loading}>
+        {' '}
+        <CircularProgress size={100} className={classes.progress} />
+      </Box>
+    );
   }
 
   return (

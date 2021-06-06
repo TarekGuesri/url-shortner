@@ -8,6 +8,13 @@ const useStyles = createUseStyles({
       marginTop: '2rem',
     },
   },
+  loading: {
+    marginTop: '14.5rem',
+    maxWidth: '600px',
+  },
+  progress: {
+    marginLeft: '30%',
+  },
 });
 
 export default useStyles;
