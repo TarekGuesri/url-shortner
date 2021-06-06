@@ -36,6 +36,13 @@ exports.encode = async (req, res) => {
   }
 };
 
-exports.decode = (req, res) => {
-  res.json('Decode');
+exports.decode = async (req, res) => {
+  const { code } = req.params;
+  const url = await Url.findOne({ urlCode: code });
+
+  if (!url) {
+    return res.status(404).json('Link does not exist or has been deleted!');
+  }
+
+  res.json(url.longUrl);
 };
