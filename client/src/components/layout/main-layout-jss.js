@@ -21,6 +21,10 @@ const useStyles = createUseStyles({
     fontSize: '3.5rem',
     // padding: '1rem',
   },
+  footer: {
+    position: 'absolute',
+    bottom: 0,
+  },
 });
 
 export default useStyles;

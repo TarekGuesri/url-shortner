@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 
 import Box from '@material-ui/core/Box';
@@ -45,6 +46,10 @@ const LinkPage = ({ match }) => {
       </Typography>
     </Box>
   );
+};
+
+LinkPage.propTypes = {
+  match: PropTypes.object.isRequired,
 };
 
 export default LinkPage;
