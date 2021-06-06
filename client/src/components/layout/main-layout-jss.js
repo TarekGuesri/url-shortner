@@ -19,6 +19,8 @@ const useStyles = createUseStyles({
   brand: {
     fontFamily: 'Oleo Script',
     fontSize: '3.5rem',
+    color: '#2A5BD7',
+    textDecoration: 'none',
     // padding: '1rem',
   },
   footer: {

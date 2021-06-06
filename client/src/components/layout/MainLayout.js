@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import Box from '@material-ui/core/Box';
@@ -23,7 +24,9 @@ const MainLayout = ({ children }) => {
           className={classes.brand}
           mb={10}
         >
-          Shortify
+          <Link to="/" className={classes.brand}>
+            Shortify
+          </Link>
         </Box>
         {children}
 

@@ -16,14 +16,14 @@ axios.defaults.headers.post['Content-Type'] = 'application/json';
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <MainLayout>
-        <Router>
+      <Router>
+        <MainLayout>
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route path="/:code" component={LinkPage} />
           </Switch>
-        </Router>
-      </MainLayout>
+        </MainLayout>
+      </Router>
     </ThemeProvider>
   );
 }
