@@ -1,4 +1,4 @@
-# Shortify - An URL Shortner
+# Shortify - A URL Shortner
 
 ## Description
 
