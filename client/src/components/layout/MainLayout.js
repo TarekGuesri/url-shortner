@@ -22,14 +22,13 @@ const MainLayout = ({ children }) => {
           display="block"
           color="primary.main"
           className={classes.brand}
-          mb={10}
+          mb={3}
         >
           <Link to="/" className={classes.brand}>
             Shortify
           </Link>
         </Box>
-        {children}
-
+        <Box className={classes.container}>{children}</Box>
         <Box className={classes.footer} mb={4}>
           <Typography variant="subtitle1">
             © {getYear()} TARIQ LAMIN GUESRI. ALL RIGHTS RESERVED.

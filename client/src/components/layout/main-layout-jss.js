@@ -3,7 +3,8 @@ import backgroundImage from 'src/assets/images/background.svg';
 
 const useStyles = createUseStyles({
   root: {
-    height: '100vh',
+    overflow: 'auto',
+    minHeight: '50%',
     width: '100%',
     '@media screen and (min-width: 992px)': {
       '& .content': {
@@ -23,8 +24,16 @@ const useStyles = createUseStyles({
     textDecoration: 'none',
     // padding: '1rem',
   },
+  container: {
+    minHeight: '57vh',
+    '@media screen and (max-width: 992px)': {
+      marginTop: '8vh',
+      marginBottm: '20px',
+    },
+  },
   footer: {
-    position: 'absolute',
+    marginTop: '15px',
+    position: 'relative',
     bottom: 0,
   },
 });
